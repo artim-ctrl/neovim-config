@@ -31,6 +31,35 @@ require("lazy").setup({
     },
     -- import/override with your plugins
     { import = "plugins" },
+    -- disable phpcs
+    {
+      -- Remove phpcs linter.
+      "mfussenegger/nvim-lint",
+      optional = true,
+      opts = {
+        linters_by_ft = {
+          php = {},
+        },
+      },
+    },
+    -- php-cs-fixer config
+    {
+      "stevearc/conform.nvim",
+      opts = {
+        formatters = {
+          ["php_cs_fixer"] = {
+            args = {
+              "fix",
+              "--config=" .. vim.fn.getcwd() .. "/.php-cs-fixer.php",
+              "$FILENAME",
+            },
+          },
+        },
+        formatters_by_ft = {
+          php = { "php_cs_fixer" },
+        },
+      },
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -62,5 +91,3 @@ require("lazy").setup({
     },
   },
 })
-
-vim.g.snacks_animate = false
