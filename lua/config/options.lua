@@ -20,3 +20,5 @@ vim.keymap.set("v", "<Right>", "")
 vim.g.lazyvim_php_lsp = "intelephense"
 
 vim.g.snacks_animate = false
+
+vim.opt.mouse = ""
