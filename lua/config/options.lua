@@ -22,3 +22,4 @@ vim.g.lazyvim_php_lsp = "intelephense"
 vim.g.snacks_animate = false
 
 vim.opt.mouse = ""
+vim.opt.tabstop = 4
