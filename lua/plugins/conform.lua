@@ -18,6 +18,7 @@ return {
           args = { "fmt", "--stdin", "--enable", "gci" },
           stdin = true,
           cwd = require("conform.util").root_file({ "go.mod" }),
+          require_cwd = true,
         },
         phpcbf = {
           cwd = require("conform.util").root_file({ "phpcs.xml" }),
@@ -27,6 +28,9 @@ return {
       formatters_by_ft = {
         php = { "php_cs_fixer", "phpcbf" },
         go = { "gofmt", "goimports", "golangci_gci" },
+      },
+      default_format_opts = {
+        lsp_format = "never",
       },
     },
   },
