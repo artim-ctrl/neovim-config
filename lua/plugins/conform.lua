@@ -24,10 +24,18 @@ return {
           cwd = require("conform.util").root_file({ "phpcs.xml" }),
           require_cwd = true,
         },
+        prettier = {
+          cwd = require("conform.util").root_file({ ".prettierrc" }),
+          require_cwd = true,
+        },
       },
       formatters_by_ft = {
         php = { "php_cs_fixer", "phpcbf" },
         go = { "gofmt", "goimports", "golangci_gci" },
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
       },
       default_format_opts = {
         lsp_format = "never",
