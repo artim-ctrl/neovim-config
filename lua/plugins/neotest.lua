@@ -6,13 +6,15 @@ return {
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
         { "fredrikaverpil/neotest-golang", version = "*" },
-        "olimorris/neotest-phpunit",
+        -- "olimorris/neotest-phpunit",
     },
     opts = function()
         return {
             adapters = {
-                require("neotest-golang")(),
-                require("neotest-phpunit"),
+                require("neotest-golang")({
+                    filter_dirs = { ".git", "node_modules", "vendor" },
+                }),
+                -- require("neotest-phpunit"),
             },
         }
     end,
